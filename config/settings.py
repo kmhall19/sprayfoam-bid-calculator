@@ -37,6 +37,19 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+
+    # Third-party
+    'rest_framework',
+    'corsheaders',
+    'storages',  # For AWS S3 media files (optional)
+
+    # Local apps
+    'accounts',
+    'projects',
+    'quotes',
+    'sf_calc',
+    'companyprofile',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +67,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / 'templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
