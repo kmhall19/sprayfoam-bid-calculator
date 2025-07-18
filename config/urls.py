@@ -14,8 +14,9 @@ urlpatterns = [
     path('signup/', SignUpView.as_view(), name='signup'),
 
     # App routes
-    path('', include('projects.urls', namespace='projects')),
-    path('quotes/', include('quotes.urls', namespace='quotes')),
+    path('', include('projects.urls')),
+    path('quotes/', include('quotes.urls')),
+    path('accounts/', include('accounts.urls'))
 ]
 
 if settings.DEBUG:

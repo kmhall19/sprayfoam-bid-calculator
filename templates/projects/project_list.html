@@ -3,7 +3,7 @@
 
 {% block content %}
 <h2>My Projects</h2>
-<a href="{% url 'projects:project-create' %}">+ New Project</a>
+<a href="{% url 'project-create' %}">+ New Project</a>
 
 <ul>
     {% for project in projects %}
@@ -12,7 +12,7 @@
             Client: {{ project.client_name }}<br>
             Location: {{ project.location }}<br>
             Created: {{ project.date_created|date:"M d, Y" }}<br>
-            <a href="{% url 'quotes:quote-detail' project.pk %}">View Quote</a>
+            <a href="{% url 'quote-detail' project.pk %}">View Quote</a>
         </li>
     {% empty %}
         <li>No projects found.</li>

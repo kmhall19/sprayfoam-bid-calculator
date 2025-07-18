@@ -6,9 +6,11 @@ from django.contrib import admin
 from .models import User
 from companyprofile.models import CompanyProfile
 
-@admin.register(User)
-class UserAdmin(BaseUserAdmin):
-    pass
+#admin.site.register(User)
+
+#@admin.register(User)
+#class UserAdmin(BaseUserAdmin):
+#    pass
 
 @admin.register(CompanyProfile)
 class CompanyProfileAdmin(admin.ModelAdmin):

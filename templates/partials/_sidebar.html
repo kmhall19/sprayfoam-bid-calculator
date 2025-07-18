@@ -1,0 +1,59 @@
+{% load static %}
+<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column">
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'project-list' %}">
+          <span data-feather="list"></span>
+          My Projects
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'project-create' %}">
+          <span data-feather="plus-circle"></span>
+          New Project
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'cost-settings' %}">
+          <span data-feather="dollar-sign"></span>
+          Cost Settings
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">
+          <span data-feather="log-out"></span>
+          Logout
+        </a>
+      </li>
+    </ul>
+
+    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+      <span>Reports</span>
+    </h6>
+    <ul class="nav flex-column mb-2">
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <span data-feather="bar-chart-2"></span>
+          Quote Summaries
+        </a>
+      </li>
+    </ul>
+
+    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+      <span>Admin</span>
+    </h6>
+    <ul class="nav flex-column mb-2">
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/">
+          <span data-feather="tool"></span>
+          Django Admin
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

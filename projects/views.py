@@ -28,7 +28,7 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         self.object = form.save()
-        return redirect('projects:add-measurements', pk=self.object.pk)
+        return redirect('add-measurements', pk=self.object.pk)
 
 # 3. Add measurements
 class MeasurementsCreateView(LoginRequiredMixin, CreateView):
@@ -36,16 +36,23 @@ class MeasurementsCreateView(LoginRequiredMixin, CreateView):
     form_class = MeasurementsForm
     template_name = 'projects/measurements_form.html'
 
+    def dispatch(self, request, *args, **kwargs):
+        project = get_object_or_404(Project, pk=self.kwargs['pk'], user=request.user)
+        if hasattr(project, 'measurements'):
+            # If measurements already exist, redirect to quote view
+            return redirect('quote-detail', pk=project.pk)
+        return super().dispatch(request, *args, **kwargs)
+
     def form_valid(self, form):
         project = get_object_or_404(Project, pk=self.kwargs['pk'], user=self.request.user)
         form.instance.project = project
         form.save()
 
-        # Calculate quote after measurements are saved
+        # Trigger quote calculation
         calculate_quote_for_project(project)
 
         return redirect('quotes:quote-detail', pk=project.pk)
-
+    
 # 4. View quote summary
 class QuoteDetailView(LoginRequiredMixin, DetailView):
     model = Quote
