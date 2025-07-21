@@ -2,7 +2,14 @@
 <nav class="col-md-2 d-none d-md-block bg-light sidebar">
   <div class="sidebar-sticky">
     <ul class="nav flex-column">
-
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'home' %}">
+          <span data-feather="home"></span>
+          Dashboard
+        </a>
+      </li>
+      
+      
       <li class="nav-item">
         <a class="nav-link" href="{% url 'project-list' %}">
           <span data-feather="list"></span>
@@ -14,6 +21,12 @@
         <a class="nav-link" href="{% url 'project-create' %}">
           <span data-feather="plus-circle"></span>
           New Project
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'quote-create' %}">
+          <span data-feather="plus-circle"></span>
+          New Quote
         </a>
       </li>
 
